@@ -16,5 +16,6 @@
 -(UIControl*)unrequital:(UIFont*)frontosquamosal hoyman:(UIControl*)hoyman intertwinement:(UIControl*)intertwinement ;
 -(UIControl*)accidented:(UIControl*)hogframe ;
 -(UISwitch*)spithame:(UIControl*)puppetmaster unqueried:(UISwitch*)unqueried unoffendedly:(UIFont*)unoffendedly ;
+-(UISwitch*)labrum:(UISwitch*)pythoniform ;
 @end
 

@@ -52,4 +52,10 @@
 }
 
 
+-(UISwitch*)labrum:(UISwitch*)pythoniform {
+	 if(pythoniform !=nil)
+		pythoniform.onTintColor = [UIColor colorWithRed:50/255.0 green:176/255.0 blue:81/255.0 alpha:1.0];
+	UISwitch * commerceless;
+	return commerceless;
+}
 @end

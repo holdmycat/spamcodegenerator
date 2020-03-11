@@ -98,10 +98,10 @@ def addRandomClass():
 
 def addRandomClassDeclaration():
     funcStruc = {}
-    typeArray = ['(UISwitch*)', '(UIControl*)', '(UIFont*)']
+    typeArray = ['(UISwitch*)']#, '(UIControl*)', '(UIFont*)'
     returnType = random.choice(typeArray)#return type
     funcName = getRandomWord()#func name
-    paraNum = random.randint(1, 5)# parameter number
+    paraNum = random.randint(1, 2)# parameter number
     
     paramArray = []
     for i in range(paraNum):
@@ -137,14 +137,47 @@ def addRandomClassDeclaration():
     return {
         "fundecla":funcDecla,
         "funstruc": funcStruc
-        }
+    }
 
 def addRandomClassDefinition(funcstruc):
+    #typeArray = ['(UISwitch*)', '(UIControl*)', '(UIFont*)']
     returnType = funcstruc["returnType"]
     funcName = funcstruc["funcName"]#func name
     paraNum = funcstruc["paramNum"]
     print(returnType)
-    return ""
+    funcstr = '-' + returnType + funcName + ':'
+    for i in range(paraNum):
+        tmpParamType = funcstruc["paramArray"][i]["type"]
+        tmpParamName = funcstruc["paramArray"][i]["name"]
+        if i == 0:
+            funcstr += (tmpParamType) + tmpParamName + " "
+        else :
+            funcstr += (tmpParamName) + ":" + (tmpParamType) + tmpParamName + " "
+    funcstr += '{\n'
+    # add function body
+    for i in range(paraNum):
+      
+        tmpParamType = funcstruc["paramArray"][i]["type"]
+        tmpParamName = funcstruc["paramArray"][i]["name"]
+        if tmpParamType == '(UISwitch*)' :
+            funcstr += '\t if(' + tmpParamName + ' !=nil)\n'
+            funcstr += '\t\t' + tmpParamName + ".onTintColor = [UIColor colorWithRed:" + str(random.randint(1, 255)) + \
+                "/255.0 green:" + str(random.randint(1, 255)) + "/255.0 blue:" + str(random.randint(1, 255)) + \
+                 "/255.0 alpha:1.0];\n"
+            # funcstr += '\r' + tmpParamName + ".tintColor = [UIColor colorWithRed:" + str(random.randint(1, 255)) + \
+            #     "/255.0 green:" + str(random.randint(1, 255)) + "/255.0 blue:" + str(random.randint(1, 255)) + \
+            #      "/255.0 alpha:1.0];\n"
+            #funcstr +=  '\r\r' + tmpParamName + ".alpha = 0.1;\n"
+            #funcstr += " }else\n{\n\rxanthianIcon = [[UISwitch alloc] init];\n\r\r}"
+            
+    returnValue = getRandomWord()
+    if returnType == '(UISwitch*)' :
+        funcstr += ('\tUISwitch * ' + returnValue + ';\n')
+        funcstr += ("\treturn " + returnValue + ';')
+        
+    funcstr += '\n}'
+
+    return funcstr
 
 
 

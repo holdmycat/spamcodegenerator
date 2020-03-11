@@ -20,5 +20,6 @@
 -(UIControl*)sooner:(UIControl*)equinus phototrichromatic:(UIFont*)phototrichromatic phthongometer:(UIFont*)phthongometer ;
 -(UIControl*)stableboy:(UIFont*)periureteric bevomit:(UISwitch*)bevomit ;
 -(UIControl*)anchoretism:(UIControl*)redelay unhumbledness:(UIFont*)unhumbledness ;
+-(UISwitch*)ambos:(UISwitch*)photophobe thyreoideal:(UISwitch*)thyreoideal ;
 @end
 

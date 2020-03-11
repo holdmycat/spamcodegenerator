@@ -94,7 +94,7 @@ def AddFunctionMFile(hfile_path, old_str, funstruc):
     mfiledata = ""
     mfilepath = hfile_path.replace(".h", ".m")   
     flagCount = 0
-    hendTotalCount = GetFileEndCount(hfile_path, old_str)
+    hendTotalCount = GetFileEndCount(mfilepath, old_str)
     try:
         mfopen = open(mfilepath, 'r')
         for line in mfopen:
