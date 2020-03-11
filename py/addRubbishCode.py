@@ -11,7 +11,7 @@ import addRandomUI
 # 获取文件中 @end 的总数量
 def GetMFileEndCount(file_path,old_str):
     file_data = ""
-    print('filePath------'+file_path)
+    #print('filePath------'+file_path)
     Ropen=open(file_path,'r')#读取文件
     flagCount = 0
     for line in Ropen:
@@ -79,7 +79,7 @@ def addCode(file_path):
             HFileAddCode(file_path, "@end", hCount)
             #print(file_path)
             funcStruc = addRandomUI.addRandomClassDeclaration()
-            print(funcStruc)
+            #print(funcStruc)
     if '.m' in file_path:
         mCount = GetMFileEndCount(file_path,"@end")
         for num in range(codeCount):
@@ -102,12 +102,12 @@ def traverse(file_dir):
 def addRubbish():
     global codeCount
     # 每个文件中添加的代码数量
-    codeCount = 5
+    codeCount = 1
     # 主工程目录
-    file_prefix = '../'
+    file_prefix = '../testcode/'
     # 要添加垃圾代码文件所在的文件夹路径
     #file_dirs = ['testcode',"Views","Models"]
-    file_dirs = ['testcode']
+    file_dirs = ['testSpamCode']
     for dir in file_dirs:
             file_dir = file_prefix + dir
             traverse(file_dir)

@@ -102,13 +102,39 @@ def addRandomClassDeclaration():
     returnType = random.choice(typeArray)#return type
     funcName = getRandomWord()#func name
     paraNum = random.randint(1, 5)# parameter number
+    
+    paramArray = []
+    for i in range(paraNum):
+        tmpParamType = random.choice(typeArray)
+        tmpParamName = getRandomWord()
+        paramStru = {
+            "type":tmpParamType,
+            "name":tmpParamName
+        }
+        paramArray.append(paramStru)
     #for i in paraNum:
     funcStruc = {
         "returnType":returnType,
         "funcName":funcName,
-        "paramNum":paraNum
+        "paramNum":paraNum,
+        "paramArray": paramArray
     }
-    return funcStruc
+   
+    #append the function declaration
+    funcDecla = '-' + funcStruc["returnType"] + funcStruc["funcName"] + ":"
+    # tmpParamType = funcStruc["paramArray"][0]["type"]
+    # tmpParamName = funcStruc["paramArray"][0]["name"]
+    #funcDecla+= (tmpParamType + tmpParamName + " ")
+    for i in range(funcStruc["paramNum"]):
+        tmpParamType = funcStruc["paramArray"][i]["type"]
+        tmpParamName = funcStruc["paramArray"][i]["name"]
+        if i == 0:
+            funcDecla += (tmpParamType) + tmpParamName + " "
+        else :
+            funcDecla += (tmpParamName) + ":" + (tmpParamType) + tmpParamName + " "
+    funcDecla += ";"
+    print (funcDecla)
+    return funcDecla
 
 
 
