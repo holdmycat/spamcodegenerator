@@ -6,12 +6,14 @@
 //  Copyright © 2020 zhao xuefei. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
+#import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 
-@interface AppDelegate : NSObject <NSApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (readonly, strong) NSPersistentContainer *persistentContainer;
+
+- (void)saveContext;
 
 
 @end

@@ -10,19 +10,31 @@
 
 @interface AppDelegate ()
 
-- (IBAction)saveAction:(id)sender;
-
 @end
 
 @implementation AppDelegate
 
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    // Insert code here to initialize your application
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    // Override point for customization after application launch.
+    return YES;
 }
 
 
-- (void)applicationWillTerminate:(NSNotification *)aNotification {
-    // Insert code here to tear down your application
+#pragma mark - UISceneSession lifecycle
+
+
+- (UISceneConfiguration *)application:(UIApplication *)application configurationForConnectingSceneSession:(UISceneSession *)connectingSceneSession options:(UISceneConnectionOptions *)options {
+    // Called when a new scene session is being created.
+    // Use this method to select a configuration to create the new scene with.
+    return [[UISceneConfiguration alloc] initWithName:@"Default Configuration" sessionRole:connectingSceneSession.role];
+}
+
+
+- (void)application:(UIApplication *)application didDiscardSceneSessions:(NSSet<UISceneSession *> *)sceneSessions {
+    // Called when the user discards a scene session.
+    // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
+    // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
 }
 
 
@@ -58,68 +70,17 @@
     return _persistentContainer;
 }
 
-#pragma mark - Core Data Saving and Undo support
+#pragma mark - Core Data Saving support
 
-- (IBAction)saveAction:(id)sender {
-    // Performs the save action for the application, which is to send the save: message to the application's managed object context. Any encountered errors are presented to the user.
+- (void)saveContext {
     NSManagedObjectContext *context = self.persistentContainer.viewContext;
-
-    if (![context commitEditing]) {
-        NSLog(@"%@:%@ unable to commit editing before saving", [self class], NSStringFromSelector(_cmd));
-    }
-    
     NSError *error = nil;
-    if (context.hasChanges && ![context save:&error]) {
-        // Customize this code block to include application-specific recovery steps.              
-        [[NSApplication sharedApplication] presentError:error];
+    if ([context hasChanges] && ![context save:&error]) {
+        // Replace this implementation with code to handle the error appropriately.
+        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+        NSLog(@"Unresolved error %@, %@", error, error.userInfo);
+        abort();
     }
-}
-
-- (NSUndoManager *)windowWillReturnUndoManager:(NSWindow *)window {
-    // Returns the NSUndoManager for the application. In this case, the manager returned is that of the managed object context for the application.
-    return self.persistentContainer.viewContext.undoManager;
-}
-
-- (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender {
-    // Save changes in the application's managed object context before the application terminates.
-    NSManagedObjectContext *context = self.persistentContainer.viewContext;
-
-    if (![context commitEditing]) {
-        NSLog(@"%@:%@ unable to commit editing to terminate", [self class], NSStringFromSelector(_cmd));
-        return NSTerminateCancel;
-    }
-    
-    if (!context.hasChanges) {
-        return NSTerminateNow;
-    }
-    
-    NSError *error = nil;
-    if (![context save:&error]) {
-
-        // Customize this code block to include application-specific recovery steps.
-        BOOL result = [sender presentError:error];
-        if (result) {
-            return NSTerminateCancel;
-        }
-
-        NSString *question = NSLocalizedString(@"Could not save changes while quitting. Quit anyway?", @"Quit without saves error question message");
-        NSString *info = NSLocalizedString(@"Quitting now will lose any changes you have made since the last successful save", @"Quit without saves error question info");
-        NSString *quitButton = NSLocalizedString(@"Quit anyway", @"Quit anyway button title");
-        NSString *cancelButton = NSLocalizedString(@"Cancel", @"Cancel button title");
-        NSAlert *alert = [[NSAlert alloc] init];
-        [alert setMessageText:question];
-        [alert setInformativeText:info];
-        [alert addButtonWithTitle:quitButton];
-        [alert addButtonWithTitle:cancelButton];
-
-        NSInteger answer = [alert runModal];
-        
-        if (answer == NSAlertSecondButtonReturn) {
-            return NSTerminateCancel;
-        }
-    }
-
-    return NSTerminateNow;
 }
 
 @end

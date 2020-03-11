@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  SceneDelegate.h
 //  testSpamCode
 //
 //  Created by zhao xuefei on 2020/3/11.
@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface SceneDelegate : UIResponder <UIWindowSceneDelegate>
 
+@property (strong, nonatomic) UIWindow * window;
 
 @end
 

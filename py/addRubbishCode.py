@@ -34,7 +34,8 @@ def HFileAddCode(file_path,old_str,endTotalCount):
         if old_str in line:
             flagCount += 1
             if flagCount==endTotalCount:
-                file_data += '\n@property(nonatomic,strong) '+className +' *'+nameStr+';\n'
+                #file_data += '\n@property(nonatomic,strong) '+className +' *'+nameStr+';\n'
+                file_data += (addRandomUI.addRandomClassDeclaration() + "\n")
             file_data += line
         else:
             file_data += line
@@ -78,12 +79,12 @@ def addCode(file_path):
         for num in range(codeCount):
             HFileAddCode(file_path, "@end", hCount)
             #print(file_path)
-            funcStruc = addRandomUI.addRandomClassDeclaration()
+            
             #print(funcStruc)
-    if '.m' in file_path:
-        mCount = GetMFileEndCount(file_path,"@end")
-        for num in range(codeCount):
-            MFileAddCode(file_path, "@end", mCount)
+    # if '.m' in file_path:
+    #     mCount = GetMFileEndCount(file_path,"@end")
+    #     for num in range(codeCount):
+    #         MFileAddCode(file_path, "@end", mCount)
 
 
 
