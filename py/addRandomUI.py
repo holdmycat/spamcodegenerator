@@ -160,15 +160,17 @@ def addRandomClassDefinition(funcstruc):
         tmpParamType = funcstruc["paramArray"][i]["type"]
         tmpParamName = funcstruc["paramArray"][i]["name"]
         if tmpParamType == '(UISwitch*)' :
-            funcstr += '\t if(' + tmpParamName + ' !=nil)\n'
+            funcstr += '\t if(' + tmpParamName + ' !=nil){\n'
             funcstr += '\t\t' + tmpParamName + ".onTintColor = [UIColor colorWithRed:" + str(random.randint(1, 255)) + \
                 "/255.0 green:" + str(random.randint(1, 255)) + "/255.0 blue:" + str(random.randint(1, 255)) + \
                  "/255.0 alpha:1.0];\n"
-            # funcstr += '\r' + tmpParamName + ".tintColor = [UIColor colorWithRed:" + str(random.randint(1, 255)) + \
-            #     "/255.0 green:" + str(random.randint(1, 255)) + "/255.0 blue:" + str(random.randint(1, 255)) + \
-            #      "/255.0 alpha:1.0];\n"
-            #funcstr +=  '\r\r' + tmpParamName + ".alpha = 0.1;\n"
-            #funcstr += " }else\n{\n\rxanthianIcon = [[UISwitch alloc] init];\n\r\r}"
+            funcstr += '\t\t' + tmpParamName + ".tintColor = [UIColor colorWithRed:" + str(random.randint(1, 255)) + \
+                "/255.0 green:" + str(random.randint(1, 255)) + "/255.0 blue:" + str(random.randint(1, 255)) + \
+                 "/255.0 alpha:1.0];\n"
+          
+            funcstr +=  '\t\t' + tmpParamName + ".alpha = 0.1;\n"
+            funcstr += "\t}else{\n\t\t" + tmpParamName + " = [[UISwitch alloc] init];\n\t}"
+            funcstr += '\n'
             
     returnValue = getRandomWord()
     if returnType == '(UISwitch*)' :
