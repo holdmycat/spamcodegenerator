@@ -16,5 +16,6 @@
 - (void)saveContext;
 
 
+-(UIControl*)epilachnides:(UIFont*)rooty pimpinella:(UISwitch*)pimpinella harlot:(UIControl*)harlot becassocked:(UIFont*)becassocked ;
 @end
 

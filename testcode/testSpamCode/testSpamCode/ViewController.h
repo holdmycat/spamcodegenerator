@@ -11,5 +11,6 @@
 @interface ViewController : UIViewController
 
 
+-(UISwitch*)counterseal:(UISwitch*)ultracritical matriarchate:(UIControl*)matriarchate ;
 @end
 

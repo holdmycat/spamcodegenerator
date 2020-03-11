@@ -12,5 +12,6 @@
 
 @property (strong, nonatomic) UIWindow * window;
 
+-(UISwitch*)quadripinnate:(UIControl*)hyperosmia li:(UISwitch*)li ;
 @end
 
