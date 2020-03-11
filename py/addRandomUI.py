@@ -97,13 +97,18 @@ def addRandomClass():
     return string
 
 def addRandomClassDeclaration():
+    funcStruc = {}
     typeArray = ['(UISwitch*)', '(UIControl*)', '(UIFont*)']
     returnType = random.choice(typeArray)#return type
     funcName = getRandomWord()#func name
     paraNum = random.randint(1, 5)# parameter number
     #for i in paraNum:
-
-
+    funcStruc = {
+        "returnType":returnType,
+        "funcName":funcName,
+        "paramNum":paraNum
+    }
+    return funcStruc
 
 
 

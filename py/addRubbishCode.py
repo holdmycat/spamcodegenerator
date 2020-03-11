@@ -77,8 +77,9 @@ def addCode(file_path):
         hCount = GetMFileEndCount(file_path,"@end")
         for num in range(codeCount):
             HFileAddCode(file_path, "@end", hCount)
-            print(file_path)
-            addRandomUI.addRandomClassDeclaration()
+            #print(file_path)
+            funcStruc = addRandomUI.addRandomClassDeclaration()
+            print(funcStruc)
     if '.m' in file_path:
         mCount = GetMFileEndCount(file_path,"@end")
         for num in range(codeCount):

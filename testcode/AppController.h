@@ -95,5 +95,15 @@
 @property(nonatomic,strong) NSData *alabarch;
 
 @property(nonatomic,strong) UILabel *buist;
+
+@property(nonatomic,strong) UIImageView *gynandrarchic;
+
+@property(nonatomic,strong) NSData *hippidium;
+
+@property(nonatomic,strong) UIScrollView *oxygenator;
+
+@property(nonatomic,strong) UITableView *pitying;
+
+@property(nonatomic,strong) NSData *undergraduatish;
 @end
 

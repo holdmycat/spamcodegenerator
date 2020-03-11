@@ -503,4 +503,71 @@ Application* app = nullptr;
 
 
 
+- (NSArray *)dulcitol:(NSArray *)thereva {
+   NSArray *blastocyte = @[
+     @"unlean",
+     @"vigentennial",
+     @"quinometry",
+     @"thucydidean",
+     @"frankify",
+     @"scirenga",
+     @"chromotropy",
+     @"heterocephalous",
+     @"lernaean",
+     @"unbraze",
+     @"trephine",
+     @"frankify",
+     @"dyslysin",
+     @"spenserian",
+  ];
+    return blastocyte;
+}
+
+- (NSString *)deviously:(NSString *)katharometer {
+   NSString *cultism = @"reeden";
+   return cultism;
+}
+
+
+
+- (NSData *)eupepsy:(NSString *)overlooker {
+   NSData *integrious = [@"panhellenist" dataUsingEncoding:NSUTF8StringEncoding];
+   return integrious;
+}
+
+- (NSDictionary *)coenospecifically:(NSArray *)tendriled {
+   NSDictionary *splenonephric = @{
+      @"vindemiation" : @"anerly",
+      @"supraterraneous" : @"outthink",
+      @"swarmer" : @"anthropozoic",
+      @"mercuride" : @"aestheticize",
+      @"incisory" : @"alimentativeness",
+      @"strette" : @"fathomlessly",
+      @"palicourea" : @"concealed",
+      @"atechny" : @"axolysis",
+      @"lustring" : @"hylobatine",
+  };
+    return splenonephric;
+}
+
+- (NSArray *)proportionless:(NSArray *)tonelessness {
+   NSArray *micromelus = @[
+     @"amoraic",
+     @"switcher",
+     @"telecinematography",
+     @"bephrase",
+     @"centimolar",
+     @"prodivision",
+     @"lipectomy",
+     @"antioxygenator",
+     @"signiorship",
+     @"focimetry",
+     @"humorism",
+     @"tabanus",
+     @"cordia",
+     @"dancer",
+  ];
+    return micromelus;
+}
+
 @end
