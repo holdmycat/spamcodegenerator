@@ -96,6 +96,14 @@ def addRandomClass():
         string = addUIImage()
     return string
 
+def addRandomClassDeclaration():
+    typeArray = ['(UISwitch*)', '(UIControl*)', '(UIFont*)']
+    returnType = random.choice(typeArray)#return type
+    funcName = getRandomWord()#func name
+    paraNum = random.randint(1, 5)# parameter number
+    #for i in paraNum:
+
+
 
 
 

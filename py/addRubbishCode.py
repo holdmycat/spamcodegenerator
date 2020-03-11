@@ -42,14 +42,13 @@ def HFileAddCode(file_path,old_str,endTotalCount):
     Wopen=open(file_path,'w')
     Wopen.write(file_data)
     Wopen.close()
+  
+# .h file: add spam function declearation
 
-   
-    
 #.m文件添加垃圾代码
 def MFileAddCode(file_path,old_str,endTotalCount):
-
     file_data = ""
-    print('filePath------'+file_path)
+    #print('filePath------'+file_path)
     Ropen=open(file_path,'r')#读取文件
     flagCount = 0
     for line in Ropen:
@@ -67,19 +66,25 @@ def MFileAddCode(file_path,old_str,endTotalCount):
     Wopen.close()
 
 
+
+
+
 def addCode(file_path):
     global codeCount
     if '.h' in file_path:  # file_dir+'/'+file含义是file_dir文件夹下的file文件
         # 获取文件中 @end 的总数量，在最后一个 @end 前面添加垃圾代码
+        
         hCount = GetMFileEndCount(file_path,"@end")
         for num in range(codeCount):
             HFileAddCode(file_path, "@end", hCount)
-  
+            print(file_path)
+            addRandomUI.addRandomClassDeclaration()
     if '.m' in file_path:
         mCount = GetMFileEndCount(file_path,"@end")
         for num in range(codeCount):
             MFileAddCode(file_path, "@end", mCount)
-        
+
+
 
 # 循环递归遍历文件夹
 def traverse(file_dir):
@@ -87,7 +92,7 @@ def traverse(file_dir):
     for dir in fs:
         tmp_path = os.path.join(file_dir, dir)
         if not os.path.isdir(tmp_path):
-            addCode(tmp_path)
+            addCode(tmp_path)    
         else:
             # 是文件夹,则递归调用
             traverse(tmp_path)
@@ -100,7 +105,8 @@ def addRubbish():
     # 主工程目录
     file_prefix = '../'
     # 要添加垃圾代码文件所在的文件夹路径
-    file_dirs = ['RunPythonInIOS',"Views","Models"]
+    #file_dirs = ['testcode',"Views","Models"]
+    file_dirs = ['testcode']
     for dir in file_dirs:
             file_dir = file_prefix + dir
             traverse(file_dir)

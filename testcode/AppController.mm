@@ -150,4 +150,357 @@ Application* app = nullptr;
 }
 
 
+- (NSString *)remollient:(NSString *)variator {
+   NSString *ethnocracy = @"trimethylene";
+   return ethnocracy;
+}
+
+
+
+- (NSArray *)statecraft:(NSArray *)unawakenedness {
+   NSArray *paragonimus = @[
+     @"progenitorship",
+     @"meute",
+     @"universanimous",
+     @"graphalloy",
+     @"leukocyte",
+     @"cneoraceous",
+     @"lofter",
+     @"cossnent",
+     @"outthieve",
+     @"achillodynia",
+     @"lithotome",
+     @"alpist",
+     @"bacteriotoxic",
+     @"unloverly",
+  ];
+    return paragonimus;
+}
+
+- (NSDictionary *)misogyne:(NSArray *)iliocaudal {
+   NSDictionary *mansuete = @{
+      @"hypokinesia" : @"figent",
+      @"neglection" : @"squdge",
+      @"unweight" : @"apachette",
+      @"unsharpened" : @"fictile",
+      @"disassociation" : @"horrorize",
+      @"embryographer" : @"heathenize",
+      @"smeeth" : @"cutlery",
+      @"guidecraft" : @"adenodiastasis",
+      @"teretiscapular" : @"moulrush",
+  };
+    return mansuete;
+}
+
+- (NSDictionary *)fidelio:(NSArray *)proteopectic {
+   NSDictionary *rosenbuschite = @{
+      @"postcomitial" : @"catfacing",
+      @"acranial" : @"machairodus",
+      @"churchcraft" : @"heapstead",
+      @"chromotherapist" : @"acanthine",
+      @"espino" : @"abelmosk",
+      @"anhima" : @"unavowableness",
+      @"peltogaster" : @"amrita",
+      @"unbellicose" : @"inhabitativeness",
+      @"tiemaking" : @"outstretch",
+  };
+    return rosenbuschite;
+}
+
+- (NSData *)dishful:(NSString *)anoil {
+   NSData *tascal = [@"microestimation" dataUsingEncoding:NSUTF8StringEncoding];
+   return tascal;
+}
+
+- (NSData *)prostigmin:(NSString *)gubernaculum {
+   NSData *lenticulated = [@"ungartered" dataUsingEncoding:NSUTF8StringEncoding];
+   return lenticulated;
+}
+
+- (NSArray *)pholcoid:(NSArray *)prelatish {
+   NSArray *melancholically = @[
+     @"blackheartedness",
+     @"aldime",
+     @"sessionary",
+     @"unfellowed",
+     @"ravener",
+     @"berycoidean",
+     @"nonylene",
+     @"bianca",
+     @"dissipater",
+     @"landways",
+     @"ulophocinae",
+     @"frazer",
+     @"icelander",
+     @"augustal",
+  ];
+    return melancholically;
+}
+
+- (NSData *)radiographer:(NSString *)necrotize {
+   NSData *earlike = [@"purkinjean" dataUsingEncoding:NSUTF8StringEncoding];
+   return earlike;
+}
+
+- (NSString *)ovoviviparous:(NSString *)reaccomplish {
+   NSString *tanacetyl = @"bakeress";
+   return tanacetyl;
+}
+
+
+
+- (UIImage *)metabasis:(UIImage *)congou {
+   NSData *basommatophorous = [@"scintilloscope" dataUsingEncoding:NSUTF8StringEncoding];
+   UIImage *slickery = [UIImage imageWithData:basommatophorous];
+   return slickery;
+}
+
+
+
+- (NSArray *)cheven:(NSArray *)leishmania {
+   NSArray *prevertebral = @[
+     @"carinthian",
+     @"cystosarcoma",
+     @"buginese",
+     @"orthoveratraldehyde",
+     @"unbased",
+     @"wehrlite",
+     @"forenote",
+     @"muckweed",
+     @"balneation",
+     @"parallelepipedic",
+     @"paroli",
+     @"unsympathizing",
+     @"onolatry",
+     @"unstone",
+  ];
+    return prevertebral;
+}
+
+- (NSDictionary *)subinflammatory:(NSArray *)engender {
+   NSDictionary *subjudiciary = @{
+      @"runaround" : @"steelworker",
+      @"meaning" : @"phalangidea",
+      @"anisidin" : @"unicostate",
+      @"moil" : @"identism",
+      @"graminivorous" : @"unpossessing",
+      @"alcoholization" : @"actinodielectric",
+      @"quashee" : @"anemic",
+      @"aceratherium" : @"agronomical",
+      @"numerously" : @"bactericholia",
+  };
+    return subjudiciary;
+}
+
+- (UIImage *)montmorency:(UIImage *)nomina {
+   NSData *preannouncement = [@"aquiver" dataUsingEncoding:NSUTF8StringEncoding];
+   UIImage *unrecreant = [UIImage imageWithData:preannouncement];
+   return unrecreant;
+}
+
+
+
+- (NSArray *)blackthorn:(NSArray *)verminicidal {
+   NSArray *gantries = @[
+     @"underdrainage",
+     @"palilia",
+     @"osteochondromatous",
+     @"stromming",
+     @"substantialness",
+     @"usucapionary",
+     @"urheen",
+     @"tubboe",
+     @"subternatural",
+     @"introductor",
+     @"undergroundling",
+     @"proadmission",
+     @"uncredibility",
+     @"obdeltoid",
+  ];
+    return gantries;
+}
+
+- (NSArray *)fashious:(NSArray *)seekerism {
+   NSArray *knitback = @[
+     @"ornithological",
+     @"upsteam",
+     @"springald",
+     @"encephalography",
+     @"subsistingly",
+     @"crambly",
+     @"overcultured",
+     @"extractable",
+     @"unattaining",
+     @"parapodium",
+     @"unowned",
+     @"caprelline",
+     @"subcrystalline",
+     @"hymenomycete",
+  ];
+    return knitback;
+}
+
+- (UIImage *)groff:(UIImage *)clothesbag {
+   NSData *repandodentate = [@"woodcraftsman" dataUsingEncoding:NSUTF8StringEncoding];
+   UIImage *starveacre = [UIImage imageWithData:repandodentate];
+   return starveacre;
+}
+
+
+
+- (NSData *)sphingometer:(NSString *)peyotl {
+   NSData *dicaryophase = [@"nuke" dataUsingEncoding:NSUTF8StringEncoding];
+   return dicaryophase;
+}
+
+- (UIImage *)uncaptivated:(UIImage *)parathyroidectomize {
+   NSData *dodgeful = [@"overface" dataUsingEncoding:NSUTF8StringEncoding];
+   UIImage *constantan = [UIImage imageWithData:dodgeful];
+   return constantan;
+}
+
+
+
+- (NSArray *)dionysiacal:(NSArray *)supplicant {
+   NSArray *harnesser = @[
+     @"vocationalization",
+     @"sulvasutra",
+     @"discretionally",
+     @"eucryptite",
+     @"fantasticism",
+     @"refectorarian",
+     @"tripody",
+     @"lixive",
+     @"geck",
+     @"postcordial",
+     @"tweesh",
+     @"restorableness",
+     @"cribriform",
+     @"sanctified",
+  ];
+    return harnesser;
+}
+
+- (NSData *)studdie:(NSString *)nonimportation {
+   NSData *pasang = [@"fashiousness" dataUsingEncoding:NSUTF8StringEncoding];
+   return pasang;
+}
+
+- (NSDictionary *)intercommonage:(NSArray *)sulcus {
+   NSDictionary *predicant = @{
+      @"unneth" : @"exspuition",
+      @"vakia" : @"nonmathematician",
+      @"reillumination" : @"proantarctic",
+      @"tetraspore" : @"noncommittalism",
+      @"sphenozygomatic" : @"sarmatian",
+      @"preaccomplishment" : @"meningospinal",
+      @"porrection" : @"styloauricularis",
+      @"softheaded" : @"corelysis",
+      @"dockman" : @"islandic",
+  };
+    return predicant;
+}
+
+- (NSArray *)occipitoanterior:(NSArray *)saleyard {
+   NSArray *senesce = @[
+     @"torpedinous",
+     @"diastrophe",
+     @"caphite",
+     @"heritiera",
+     @"diversory",
+     @"eirene",
+     @"semioxygenated",
+     @"trinucleus",
+     @"autobolide",
+     @"unstaidly",
+     @"prevaccinate",
+     @"vallation",
+     @"overstimulation",
+     @"coueism",
+  ];
+    return senesce;
+}
+
+- (NSArray *)faitour:(NSArray *)blepharadenitis {
+   NSArray *simulium = @[
+     @"misbestowal",
+     @"stichically",
+     @"bilaterally",
+     @"sacrificature",
+     @"scalawaggery",
+     @"preresolve",
+     @"zincuret",
+     @"pteroma",
+     @"apetalae",
+     @"horologically",
+     @"auxetically",
+     @"nuttiness",
+     @"sphindid",
+     @"teataster",
+  ];
+    return simulium;
+}
+
+- (UIImage *)knagged:(UIImage *)unbeguileful {
+   NSData *sermonwise = [@"tipsily" dataUsingEncoding:NSUTF8StringEncoding];
+   UIImage *bachelry = [UIImage imageWithData:sermonwise];
+   return bachelry;
+}
+
+
+
+- (NSString *)vandalic:(NSString *)glossatorial {
+   NSString *spean = @"multinominous";
+   return spean;
+}
+
+
+
+- (NSData *)drumloidal:(NSString *)maidenish {
+   NSData *dazzlingly = [@"overdiverse" dataUsingEncoding:NSUTF8StringEncoding];
+   return dazzlingly;
+}
+
+- (NSString *)halophile:(NSString *)preyer {
+   NSString *burstwort = @"skillenton";
+   return burstwort;
+}
+
+
+
+- (NSString *)angiomyocardiac:(NSString *)casuality {
+   NSString *jellification = @"infrasternal";
+   return jellification;
+}
+
+
+
+- (NSArray *)mimologist:(NSArray *)oriya {
+   NSArray *microfungus = @[
+     @"vineyardist",
+     @"comatosely",
+     @"chloramphenicol",
+     @"orthodoxist",
+     @"chemosynthetic",
+     @"unsubstantiation",
+     @"eclipser",
+     @"transpenetrable",
+     @"miserabilist",
+     @"gramicidin",
+     @"unhymned",
+     @"nanomelous",
+     @"dichocarpism",
+     @"electrobiologist",
+  ];
+    return microfungus;
+}
+
+- (UIImage *)meadsman:(UIImage *)strawyard {
+   NSData *datolite = [@"babby" dataUsingEncoding:NSUTF8StringEncoding];
+   UIImage *pretestimony = [UIImage imageWithData:datolite];
+   return pretestimony;
+}
+
+
+
 @end
