@@ -84,12 +84,4 @@
     }
 }
 
--(UISwitch*)ambos:(UISwitch*)photophobe thyreoideal:(UISwitch*)thyreoideal {
-	 if(photophobe !=nil)
-		photophobe.onTintColor = [UIColor colorWithRed:87/255.0 green:50/255.0 blue:12/255.0 alpha:1.0];
-	 if(thyreoideal !=nil)
-		thyreoideal.onTintColor = [UIColor colorWithRed:14/255.0 green:111/255.0 blue:164/255.0 alpha:1.0];
-	UISwitch * sphenethmoid;
-	return sphenethmoid;
-}
 @end
