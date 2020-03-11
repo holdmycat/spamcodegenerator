@@ -17,5 +17,8 @@
 
 
 -(UIControl*)epilachnides:(UIFont*)rooty pimpinella:(UISwitch*)pimpinella harlot:(UIControl*)harlot becassocked:(UIFont*)becassocked ;
+-(UIControl*)sooner:(UIControl*)equinus phototrichromatic:(UIFont*)phototrichromatic phthongometer:(UIFont*)phthongometer ;
+-(UIControl*)stableboy:(UIFont*)periureteric bevomit:(UISwitch*)bevomit ;
+-(UIControl*)anchoretism:(UIControl*)redelay unhumbledness:(UIFont*)unhumbledness ;
 @end
 

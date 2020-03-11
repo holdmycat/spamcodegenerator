@@ -9,7 +9,7 @@ import addRandomUI
 
 
 # 获取文件中 @end 的总数量
-def GetMFileEndCount(file_path,old_str):
+def GetFileEndCount(file_path,old_str):
     file_data = ""
     #print('filePath------'+file_path)
     Ropen=open(file_path,'r')#读取文件
@@ -43,7 +43,8 @@ def HFileAddCode(file_path,old_str,endTotalCount):
     Wopen=open(file_path,'w')
     Wopen.write(file_data)
     Wopen.close()
-  
+
+
 # .h file: add spam function declearation
 
 #.m文件添加垃圾代码
@@ -65,24 +66,68 @@ def MFileAddCode(file_path,old_str,endTotalCount):
     Wopen=open(file_path,'w')
     Wopen.write(file_data)
     Wopen.close()
+    
 
 
+def AddFunctionHFile(file_path,old_str):
+    file_data = ""
+    Ropen=open(file_path,'r')
+    flagCount = 0
+    fundata = {} 
+    hendTotalCount = GetFileEndCount(file_path, old_str)
+    for line in Ropen:
+        if old_str in line:
+            flagCount += 1
+            if flagCount==hendTotalCount:
+                fundata = addRandomUI.addRandomClassDeclaration()
+                file_data += (fundata["fundecla"] + "\n")            
+            file_data += line
+        else:
+            file_data += line
+    Ropen.close()
+    Wopen=open(file_path,'w')
+    Wopen.write(file_data)
+    Wopen.close()
+    return fundata
 
-
+def AddFunctionMFile(hfile_path, old_str, funstruc):
+    mfiledata = ""
+    mfilepath = hfile_path.replace(".h", ".m")   
+    flagCount = 0
+    hendTotalCount = GetFileEndCount(hfile_path, old_str)
+    try:
+        mfopen = open(mfilepath, 'r')
+        for line in mfopen:
+            if old_str in line:
+                flagCount += 1
+                if flagCount==hendTotalCount:
+                    mfiledata +=  (addRandomUI.addRandomClassDefinition(funstruc) + "\n")            
+                mfiledata += line
+            else:
+                mfiledata += line
+        mfopen.close()
+        Wopen=open(mfilepath,'w')
+        Wopen.write(mfiledata)
+        Wopen.close()     
+    except IOError:
+        print("File not accessible")
+    finally:
+        mfopen.close()
 
 def addCode(file_path):
     global codeCount
     if '.h' in file_path:  # file_dir+'/'+file含义是file_dir文件夹下的file文件
-        # 获取文件中 @end 的总数量，在最后一个 @end 前面添加垃圾代码
+        # 获取文件中 @end 的总数量，在最后一个 @end 前面添加垃圾代码 
         
-        hCount = GetMFileEndCount(file_path,"@end")
         for num in range(codeCount):
-            HFileAddCode(file_path, "@end", hCount)
+            print("file path: " + file_path)
+            fundata = AddFunctionHFile(file_path, "@end")
+            AddFunctionMFile(file_path, "@end", fundata["funstruc"])
             #print(file_path)
             
             #print(funcStruc)
     # if '.m' in file_path:
-    #     mCount = GetMFileEndCount(file_path,"@end")
+    #     mCount = GetFileEndCount(file_path,"@end")
     #     for num in range(codeCount):
     #         MFileAddCode(file_path, "@end", mCount)
 

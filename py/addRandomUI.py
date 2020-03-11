@@ -134,8 +134,17 @@ def addRandomClassDeclaration():
             funcDecla += (tmpParamName) + ":" + (tmpParamType) + tmpParamName + " "
     funcDecla += ";"
     print (funcDecla)
-    return funcDecla
+    return {
+        "fundecla":funcDecla,
+        "funstruc": funcStruc
+        }
 
+def addRandomClassDefinition(funcstruc):
+    returnType = funcstruc["returnType"]
+    funcName = funcstruc["funcName"]#func name
+    paraNum = funcstruc["paramNum"]
+    print(returnType)
+    return ""
 
 
 
