@@ -10,9 +10,13 @@ def addTheControlAsParam(controlName, paraName):
         funcstr +=addUILabelAsParam(paraName)
     elif controlName == "UIButton":
         funcstr +=addUIButtonAsParam(paraName)
-        
+    elif controlName == "UIControl":
+        funcstr +=addUIControlAsParam(paraName)
+    elif controlName == "UISlider":
+        funcstr +=addUISliderAsParam(paraName)
+         
     return funcstr
-#添加UISWITCH
+#添加UISWITCH,UILabel, UIButton, UIControl, UISlider
 def addUISwitchAsParam(paraName):
     funcstr = ""
     #UISwitch begin
@@ -59,16 +63,44 @@ def addUIButtonAsParam(paraName):
     funcstr += '\t if(' + paraName + ' !=nil){\n'
     #------------添加中间属性
     #add onTintColor
-    if CheckIsTrue() == True:
-        funcstr += AddCheckButtonInst(paraName)
-    if CheckIsTrue() == True:
-        funcstr += AddBtnTitle(paraName)
+    funcstr += AddCheckButtonInst(paraName)
+    funcstr += AddBtnTitle(paraName)
     funcstr += AddBtnColor(paraName)
     funcstr += AddBtnFont(paraName)      
     #----------------------
     funcstr += "\t}else{\n\t\t" + paraName + " = [[UIButton alloc] init];\n\t}"
     funcstr += '\n'
     return funcstr
+
+def addUIControlAsParam(paraName):
+    funcstr = ""
+    #UISwitch begin
+    funcstr += '\t if(' + paraName + ' !=nil){\n'
+    #------------添加中间属性
+    #add onTintColor
+    funcstr += AddCheckControlInst(paraName)
+    funcstr += AddControlBGColor(paraName)
+    funcstr += AddControlAlignment(paraName)
+    funcstr += AddControlAlpha(paraName)      
+    #----------------------
+    funcstr += "\t}else{\n\t\t" + paraName + " = [[UIControl alloc] init];\n\t}"
+    funcstr += '\n'
+    return funcstr
+
+def addUISliderAsParam(paraName):
+    funcstr = ""
+    #UISwitch begin
+    funcstr += '\t if(' + paraName + ' !=nil){\n'
+    #------------添加中间属性
+    funcstr += AddCheckSliderInst(paraName)
+    funcstr += AddUISliderTag(paraName)
+    funcstr += AddControlAlignment(paraName)
+    funcstr += AddUISliderMin(paraName)      
+    #----------------------
+    funcstr += "\t}else{\n\t\t" + paraName + " = [[UISlider alloc] init];\n\t}"
+    funcstr += '\n'
+    return funcstr
+
 
 #------------UI返回值处理---------------
 def addTheControlAsReturn(controlName):
@@ -85,6 +117,49 @@ def addUISwitchAsReturn():
 
 
 #--------------属性封装区---------------
+
+#----uislider
+def AddCheckSliderInst(paramName):
+    funcstr = ''
+    funcstr += '\t\tif(' + paramName + ' == nil) {\n'
+    funcstr += '\t\t\t' + paramName + ' = [[UISlider alloc] init];\n'
+    funcstr += '\t\t}\n'
+    return funcstr
+
+def AddUISliderTag (paraName):
+    funcstr = ""
+    funcstr += '\t\t' + paraName + ".tag = " + str(random.randint(1, 400)) + ";\n"
+    return funcstr   
+
+def AddUISliderMin (paraName):
+    funcstr = ""
+    funcstr += '\t\t' + paraName + ".minimumValue = " + str(random.randint(0, 13)) + ";\n"
+    return funcstr 
+
+#----uicontorl
+def AddCheckControlInst(paramName):
+    funcstr = ''
+    funcstr += '\t\tif(' + paramName + ' == nil) {\n'
+    funcstr += '\t\t\t' + paramName + ' = [[UIControl alloc] init];\n'
+    funcstr += '\t\t}\n'
+    return funcstr
+
+def AddControlBGColor(paraName):
+    funcstr = ""
+    funcstr += '\t\t' + paraName + " backgroundColor = [UIColor colorWithRed:" + str(random.randint(1, 255)) + \
+                "/255.0 green:" + str(random.randint(1, 255)) + "/255.0 blue:" + str(random.randint(1, 255)) + \
+                 "/255.0 alpha:1.0];\n"
+    return funcstr    
+
+def AddControlAlignment(paraName):
+    funcstr = ""
+    funcstr += '\t\t' + paraName + ".contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;\n"
+    return funcstr   
+
+def AddControlAlpha (paraName):
+    funcstr = ""
+    funcstr += '\t\t' + paraName + ".alpha = 0." + str(random.randint(0,10)) + ";\n"
+    return funcstr  
 
 #----uibutton
 def AddCheckButtonInst(paramName):

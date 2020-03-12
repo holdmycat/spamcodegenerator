@@ -206,7 +206,7 @@ def addRubbish():
 def initGlobalData():
     global codeCount
     # 每个文件中添加的代码数量
-    codeCount = 3
+    codeCount = 1
     addRandomUI.InitRandomGlobalData()
     global g_ignoreHeaderFile
     g_ignoreHeaderFile = ['AppDelegate.h','SceneDelegate.h']

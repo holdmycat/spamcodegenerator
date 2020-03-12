@@ -167,6 +167,11 @@ def addRandomClassDefinition(funcstruc, finalHFileArray):
             funcstr+=addUIControl.addTheControlAsParam("UILabel", tmpParamName)
         elif tmpParamType == '(UIButton*)' :
             funcstr+=addUIControl.addTheControlAsParam("UIButton", tmpParamName)
+        elif tmpParamType == '(UIControl*)' :
+            funcstr+=addUIControl.addTheControlAsParam("UIControl", tmpParamName) 
+        elif tmpParamType == '(UISlider*)' :
+            funcstr+=addUIControl.addTheControlAsParam("UISlider", tmpParamName) 
+        
     #根据接口返回类型，实例化返回值
     returnValue = getRandomWord()
     if returnType == '(UISwitch*)' :
@@ -180,8 +185,9 @@ def addRandomClassDefinition(funcstruc, finalHFileArray):
 
 def InitRandomGlobalData ():
     global g_typeArray
-    g_typeArray = ['(UIButton*)', '(UISwitch*)', '(UILabel*)', ]#, UISwitch, UILabel '(UIControl*)', '(UIFont*)'
-    global g_variableNum
-    g_variableNum = 5
+    #g_typeArray = ['(UIButton*)', '(UISwitch*)', '(UILabel*)','(UIControl*)']#, UISwitch, UILabel '(UIControl*)', '(UIFont*)'
+    g_typeArray = ['(UISlider*)']#, UISwitch, UILabel '(UIControl*)', '(UIFont*)'
+    global g_variableNum# 参数最大个数
+    g_variableNum = 2
 
 
