@@ -8,11 +8,13 @@ def addTheControlAsParam(controlName, paraName):
         funcstr +=addUISwitchAsParam(paraName)
     elif controlName == "UILabel":
         funcstr +=addUILabelAsParam(paraName)
+    elif controlName == "UIButton":
+        funcstr +=addUIButtonAsParam(paraName)
+        
     return funcstr
 #添加UISWITCH
 def addUISwitchAsParam(paraName):
     funcstr = ""
-    print("addUISwitchAsParam: " + paraName)
     #UISwitch begin
     funcstr += '\t if(' + paraName + ' !=nil){\n'
     #------------添加中间属性
@@ -37,14 +39,36 @@ def addUISwitchAsParam(paraName):
 
 def addUILabelAsParam(paraName):
     funcstr = ""
-    funcstr += AddCheckLabelInst(paraName)
-    funcstr += AddLabelText(paraName)
-    funcstr += AddShadowOffSet(paraName)
-    funcstr += AddHighLightedTextColor(paraName)
-    funcstr += AddLabelFont(paraName)
-    funcstr += AddTextAlignment(paraName)
+    if CheckIsTrue() == True:
+        funcstr += AddCheckLabelInst(paraName)
+    if CheckIsTrue() == True:
+        funcstr += AddLabelText(paraName)
+    if CheckIsTrue() == True:
+        funcstr += AddShadowOffSet(paraName)
+    if CheckIsTrue() == True:
+        funcstr += AddHighLightedTextColor(paraName)
+    if CheckIsTrue() == True:
+        funcstr += AddLabelFont(paraName)
+    if CheckIsTrue() == True:
+        funcstr += AddTextAlignment(paraName)
     return funcstr
 
+def addUIButtonAsParam(paraName):
+    funcstr = ""
+    #UISwitch begin
+    funcstr += '\t if(' + paraName + ' !=nil){\n'
+    #------------添加中间属性
+    #add onTintColor
+    if CheckIsTrue() == True:
+        funcstr += AddCheckButtonInst(paraName)
+    if CheckIsTrue() == True:
+        funcstr += AddBtnTitle(paraName)
+    funcstr += AddBtnColor(paraName)
+    funcstr += AddBtnFont(paraName)      
+    #----------------------
+    funcstr += "\t}else{\n\t\t" + paraName + " = [[UIButton alloc] init];\n\t}"
+    funcstr += '\n'
+    return funcstr
 
 #------------UI返回值处理---------------
 def addTheControlAsReturn(controlName):
@@ -61,6 +85,33 @@ def addUISwitchAsReturn():
 
 
 #--------------属性封装区---------------
+
+#----uibutton
+def AddCheckButtonInst(paramName):
+    funcstr = ''
+    funcstr += '\t\tif(' + paramName + ' == nil) {\n'
+    funcstr += '\t\t\t' + paramName + ' = [[UIButton alloc] init];\n'
+    funcstr += '\t\t}\n'
+    return funcstr
+
+def AddBtnColor (paraName):
+    funcstr = ""
+    funcstr += '\t\t[' + paraName + " setTitleColor : [UIColor colorWithRed:" + str(random.randint(1, 255)) + \
+                "/255.0 green:" + str(random.randint(1, 255)) + "/255.0 blue:" + str(random.randint(1, 255)) + \
+                 "/255.0 alpha:1.0] forState:UIControlStateNormal];\n"
+    return funcstr
+
+def AddBtnTitle(paraName):
+    funcstr = ""
+    funcstr += '\t\t[' + paraName + "setTitle:@\"" + addRandomUI.getRandomWord() + "\"" + ' forState:UIControlStateNormal' + '];\n' 
+    return funcstr   
+
+def AddBtnFont (paraName):
+    funcstr = ""
+    funcstr += '\t\t' + paraName + ".titleLabel.font = [UIFont systemFontOfSize:" + str(random.randint(10,40)) + '];\n' 
+    return funcstr   
+
+#----uiswitch
 def AddOnTintColor(paraName):
     funcstr = ""
     funcstr += '\t\t' + paraName + ".onTintColor = [UIColor colorWithRed:" + str(random.randint(1, 255)) + \
@@ -97,10 +148,10 @@ def AddisEnabled (paramName):
 
 def AddisHightLighted(paramName):
     funcstr = ""
-    funcstr +=  '\t\tif(!' + paramName + ".isHightlighted){\n"
+    funcstr +=  '\t\tif(!' + paramName + ".isHighlighted){\n"
     funcstr +=  '\t\t}\n'
     return funcstr  
-
+#----label
 def AddCheckLabelInst(paramName):
     funcstr = ''
     funcstr += '\t\tif(' + paramName + ' == nil) {\n'
