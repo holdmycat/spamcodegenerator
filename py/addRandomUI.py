@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+# -*- author: zhaoxuefei -*-
+# -*- date: 2020.03.10 -*-
 
 import random
 

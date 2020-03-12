@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
+# -*- author: zhaoxuefei -*-
+# -*- date: 2020.03.10 -*-
+
 
 import random
 import os
 import addRandomUI
 
 
-
-
-
 # 获取文件中 @end 的总数量
 def GetFileEndCount(file_path,old_str):
-    file_data = ""
+    #file_data = ""
     #print('filePath------'+file_path)
     Ropen=open(file_path,'r')#读取文件
     flagCount = 0
@@ -28,8 +28,8 @@ def HFileAddCode(file_path,old_str,endTotalCount):
     Ropen=open(file_path,'r')
     flagCount = 0
     for line in Ropen:
-        nameStr = addRandomUI.getRandomWord()
-        className = random.choice(classArray)
+        #nameStr = addRandomUI.getRandomWord()
+        #className = random.choice(classArray)
 
         if old_str in line:
             flagCount += 1
@@ -108,16 +108,23 @@ def AddFunctionMFile(hfile_path, old_str, funstruc, hFileArray):
     headStr = "#import"
     hendTotalCount = GetFileEndCount(mfilepath, old_str)
     finalHFileArray = []#最终真正添加到当前文件的#import头 
+    curHFileStr = ""
     #add import header
     try:
+        mfopen = open(mfilepath, 'r')
+        for line in mfopen:
+            if headStr in line:
+                curHFileStr+=(line + "\r")
+        mfopen.close()
         mfopen = open(mfilepath, 'r')
         for line in mfopen:
             if headStr in line:
                 if headerFlatCount == 0 and len(hFileArray) > 1:     
                         randomNum = random.randint(1, len(hFileArray))
                         for i in range(randomNum):
-                            finalHFileArray.append(hFileArray[i])
-                            mfiledata+= ("#import \"" + hFileArray[i] + "\"" + '\n')
+                            if curHFileStr.find(hFileArray[i]) == -1:
+                                finalHFileArray.append(hFileArray[i])
+                                mfiledata+= ("#import \"" + hFileArray[i] + "\"" + '\n')
                 mfiledata += line
                 headerFlatCount+=1
             else:
@@ -139,7 +146,7 @@ def AddFunctionMFile(hfile_path, old_str, funstruc, hFileArray):
             if old_str in line:
                 flagCount += 1
                 if flagCount==hendTotalCount:
-                    mfiledata +=  (addRandomUI.addRandomClassDefinition(funstruc,finalHFileArray) + "\n")            
+                    mfiledata +=  (addRandomUI.addRandomClassDefinition(funstruc, finalHFileArray) + "\n")            
                 mfiledata += line
             else:
                 mfiledata += line
