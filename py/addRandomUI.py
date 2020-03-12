@@ -178,7 +178,7 @@ def addRandomClassDefinition(funcstruc, finalHFileArray):
 
 def InitRandomGlobalData ():
     global g_typeArray
-    g_typeArray = ['(UILable*)']#, '(UIControl*)', '(UIFont*)'
+    g_typeArray = ['(UILabel*)']#, '(UIControl*)', '(UIFont*)'
 
 
 

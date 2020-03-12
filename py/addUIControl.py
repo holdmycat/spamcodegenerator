@@ -6,6 +6,8 @@ def addTheControlAsParam(controlName, paraName):
     funcstr = ''
     if controlName == 'UISwitch':
         funcstr +=addUISwitchAsParam(paraName)
+    elif controlName == "UILabel":
+        funcstr +=addUILabelAsParam(paraName)
     return funcstr
 #添加UISWITCH
 def addUISwitchAsParam(paraName):
@@ -25,11 +27,23 @@ def addUISwitchAsParam(paraName):
         funcstr += AddUIImage(paraName)
     if CheckIsTrue() == True:
         funcstr += AddisEnabled(paraName)
+    if CheckIsTrue() == True:
+        funcstr += AddisHightLighted(paraName)
+       
     #----------------------
     funcstr += "\t}else{\n\t\t" + paraName + " = [[UISwitch alloc] init];\n\t}"
     funcstr += '\n'
     return funcstr
 
+def addUILabelAsParam(paraName):
+    funcstr = ""
+    funcstr += AddCheckLabelInst(paraName)
+    funcstr += AddLabelText(paraName)
+    funcstr += AddShadowOffSet(paraName)
+    funcstr += AddHighLightedTextColor(paraName)
+    funcstr += AddLabelFont(paraName)
+    funcstr += AddTextAlignment(paraName)
+    return funcstr
 
 
 #------------UI返回值处理---------------
@@ -80,6 +94,45 @@ def AddisEnabled (paramName):
     funcstr +=  '\t\tif(!' + paramName + ".isEnabled){\n"
     funcstr +=  '\t\t}\n'
     return funcstr    
+
+def AddisHightLighted(paramName):
+    funcstr = ""
+    funcstr +=  '\t\tif(!' + paramName + ".isHightlighted){\n"
+    funcstr +=  '\t\t}\n'
+    return funcstr  
+
+def AddCheckLabelInst(paramName):
+    funcstr = ''
+    funcstr += '\t\tif(' + paramName + ' == nil) {\n'
+    funcstr += '\t\t\t' + paramName + ' = [[UILabel alloc] init];\n'
+    funcstr += '\t\t}\n'
+    return funcstr
+
+def AddLabelText (paramName):
+   
+    funcstr = ""
+    funcstr +=  '\t\t' + paramName + ".text = @" + "\"" +addRandomUI.getRandomWord() + "\"" +";\n"
+    return funcstr      
+
+def AddShadowOffSet (paramName):
+    funcstr = ""
+    funcstr =  '\t\t' + paramName + ".shadowOffset = CGSizeMake(" + str(random.randint(10,20)) + "," + str(random.randint(25,50)) +");\n" 
+    return funcstr   
+
+def AddHighLightedTextColor(paramName):
+    funcstr = ""
+    funcstr =  '\t\t' + paramName + ".highlightedTextColor = [UIColor colorWithRed:" + str(random.randint(1, 255)) + \
+                "/255.0 green:" + str(random.randint(1, 255)) + "/255.0 blue:" + str(random.randint(1, 255)) + \
+                 "/255.0 alpha:1.0];\n"
+    return funcstr  
+
+def AddLabelFont (paramName):
+    funcstr = ""
+    return funcstr   
+
+def AddTextAlignment (paramName):
+    funcstr = ""
+    return funcstr   
 
 def CheckIsTrue():
     _tmpRandom = random.randint(0, 1)
