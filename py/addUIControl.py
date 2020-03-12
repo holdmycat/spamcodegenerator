@@ -1,5 +1,5 @@
 import random
-
+import addRandomUI
 #------------控件作为参数--------------
 def addTheControlAsParam(controlName, paraName):
     #print(controlName)
@@ -21,6 +21,8 @@ def addUISwitchAsParam(paraName):
         funcstr += AddTintColor(paraName)
     if CheckIsTrue() == True:
         funcstr += AddAlpha(paraName)
+    if CheckIsTrue() == True:
+        funcstr += AddUIImage(paraName)
     #----------------------
     funcstr += "\t}else{\n\t\t" + paraName + " = [[UISwitch alloc] init];\n\t}"
     funcstr += '\n'
@@ -61,6 +63,15 @@ def AddAlpha (paramName):
     funcstr = ""
     funcstr +=  '\t\t' + paramName + ".alpha = 0.1;\n"
     return funcstr       
+
+def AddUIImage (paramName):
+    funcstr = ""
+    #UIImage *img = [UIImage imageNamed:@"anyImageName”];
+    imagename = addRandomUI.getRandomWord()
+    imagename2 = addRandomUI.getRandomWord()
+    funcstr +=  '\t\t' + 'UIImage *' + imagename + ' = [UIImage imageNamed:@'+ "\"" + imagename2 + "\"" + "];\n"
+    funcstr +=  '\t\t' + paramName + ".onImage = " + imagename + ";\n"
+    return funcstr    
 
 def CheckIsTrue():
     _tmpRandom = random.randint(0, 1)
