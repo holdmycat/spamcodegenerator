@@ -158,7 +158,7 @@ def addRandomClassDefinition(funcstruc, finalHFileArray):
         tmpParaName = getRandomWord()
         funcstr+= '\t' + className + ' * ' + tmpParaName + \
                 ' = [[' + className + '] init];\n'
-
+    
     #对参数进行属性随机设置
     for i in range(paraNum):   
         tmpParamType = funcstruc["paramArray"][i]["type"]

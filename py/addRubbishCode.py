@@ -6,7 +6,7 @@
 import random
 import os
 import addRandomUI
-
+import printColor
 
 # 获取文件中 @end 的总数量
 def GetFileEndCount(file_path,old_str):
@@ -207,8 +207,7 @@ def addRubbish():
 
 def main():
     addRubbish()
-    print('add code success')
-
-
+    #print(Fore.BLUE +  'add code success')
+    printColor.prGreen('add code success')
 if __name__ == '__main__':
     main()
