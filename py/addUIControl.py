@@ -128,10 +128,12 @@ def AddHighLightedTextColor(paramName):
 
 def AddLabelFont (paramName):
     funcstr = ""
+    funcstr += '\t\t[' + paramName + ' setFont:[UIFont systemFontOfSize:' + str(random.randint(2,22)) + ']];\n'
     return funcstr   
 
 def AddTextAlignment (paramName):
     funcstr = ""
+    funcstr += '\t\t[' + paramName + ' setTextAlignment:UITextAlignmentCenter];\n'
     return funcstr   
 
 def CheckIsTrue():
