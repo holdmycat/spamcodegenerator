@@ -75,11 +75,11 @@ def AddFunctionHFile(file_path,file_dir, old_str):
     Ropen=open(file_path,'r')
     flagCount = 0
     fundata = {} 
-    ignoreHeaderFile = ['AppDelegate.h','SceneDelegate.h']
+    #ignoreHeaderFile = ['AppDelegate.h','SceneDelegate.h']
     hFileNameArray = []#当前文件通目录下的其他.h文件名称数组
     for file_name in os.listdir(file_dir): 
         if '.h' in file_name:
-            if file_path.find(file_name) == -1 and file_name not in ignoreHeaderFile:
+            if file_path.find(file_name) == -1 and file_name not in g_ignoreHeaderFile:
                 hFileNameArray.append(file_name)
 
     hendTotalCount = GetFileEndCount(file_path, old_str)
@@ -192,9 +192,7 @@ def traverse(file_dir):
 
 
 def addRubbish():
-    global codeCount
-    # 每个文件中添加的代码数量
-    codeCount = 1
+   
     # 主工程目录
     file_prefix = '../testcode/'
     # 要添加垃圾代码文件所在的文件夹路径
@@ -205,7 +203,17 @@ def addRubbish():
             traverse(file_dir)
         
 
+def initGlobalData():
+    global codeCount
+    # 每个文件中添加的代码数量
+    codeCount = 1
+    addRandomUI.InitRandomGlobalData()
+    global g_ignoreHeaderFile
+    g_ignoreHeaderFile = ['AppDelegate.h','SceneDelegate.h']
+
+
 def main():
+    initGlobalData()
     addRubbish()
     #print(Fore.BLUE +  'add code success')
     printColor.prGreen('add code success')

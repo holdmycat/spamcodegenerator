@@ -91,14 +91,13 @@ def addRandomClass():
 
 def addRandomClassDeclaration():
     funcStruc = {}
-    typeArray = ['(UISwitch*)']#, '(UIControl*)', '(UIFont*)'
-    returnType = random.choice(typeArray)#return type
+    returnType = random.choice(g_typeArray)#return type
     funcName = getRandomWord()#func name
     paraNum = random.randint(1, 2)# parameter number
     
     paramArray = []
     for i in range(paraNum):
-        tmpParamType = random.choice(typeArray)
+        tmpParamType = random.choice(g_typeArray)
         tmpParamName = getRandomWord()
         paramStru = {
             "type":tmpParamType,
@@ -133,7 +132,6 @@ def addRandomClassDeclaration():
     }
 
 def addRandomClassDefinition(funcstruc, finalHFileArray):
-    #typeArray = ['(UISwitch*)', '(UIControl*)', '(UIFont*)']
     returnType = funcstruc["returnType"]
     funcName = funcstruc["funcName"]#func name
     paraNum = funcstruc["paramNum"]
@@ -165,7 +163,8 @@ def addRandomClassDefinition(funcstruc, finalHFileArray):
         tmpParamName = funcstruc["paramArray"][i]["name"]
         if tmpParamType == '(UISwitch*)' :
             funcstr+=addUIControl.addTheControlAsParam("UISwitch", tmpParamName)
-              
+        elif tmpParamType == '(UILabel*)' :
+            funcstr+=addUIControl.addTheControlAsParam("UILabel", tmpParamName)
     #根据接口返回类型，实例化返回值
     returnValue = getRandomWord()
     if returnType == '(UISwitch*)' :
@@ -177,8 +176,9 @@ def addRandomClassDefinition(funcstruc, finalHFileArray):
     return funcstr
 
 
-
-
+def InitRandomGlobalData ():
+    global g_typeArray
+    g_typeArray = ['(UILable*)']#, '(UIControl*)', '(UIFont*)'
 
 
 

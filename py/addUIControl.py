@@ -23,6 +23,8 @@ def addUISwitchAsParam(paraName):
         funcstr += AddAlpha(paraName)
     if CheckIsTrue() == True:
         funcstr += AddUIImage(paraName)
+    if CheckIsTrue() == True:
+        funcstr += AddisEnabled(paraName)
     #----------------------
     funcstr += "\t}else{\n\t\t" + paraName + " = [[UISwitch alloc] init];\n\t}"
     funcstr += '\n'
@@ -71,6 +73,12 @@ def AddUIImage (paramName):
     imagename2 = addRandomUI.getRandomWord()
     funcstr +=  '\t\t' + 'UIImage *' + imagename + ' = [UIImage imageNamed:@'+ "\"" + imagename2 + "\"" + "];\n"
     funcstr +=  '\t\t' + paramName + ".onImage = " + imagename + ";\n"
+    return funcstr    
+
+def AddisEnabled (paramName):
+    funcstr = ""
+    funcstr +=  '\t\tif(!' + paramName + ".isEnabled){\n"
+    funcstr +=  '\t\t}\n'
     return funcstr    
 
 def CheckIsTrue():
