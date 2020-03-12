@@ -11,5 +11,6 @@
 @interface ViewController : UIViewController
 
 
+-(UISlider*)scleroseptum:(UISwitch*)uncharacter ;
 @end
 

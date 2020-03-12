@@ -12,5 +12,6 @@
 
 @property (strong, nonatomic) UIWindow * window;
 
+-(UISwitch*)yawler:(UIButton*)phylarch ;
 @end
 

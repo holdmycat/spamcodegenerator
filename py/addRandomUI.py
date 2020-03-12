@@ -171,22 +171,26 @@ def addRandomClassDefinition(funcstruc, finalHFileArray):
             funcstr+=addUIControl.addTheControlAsParam("UIControl", tmpParamName) 
         elif tmpParamType == '(UISlider*)' :
             funcstr+=addUIControl.addTheControlAsParam("UISlider", tmpParamName) 
-        
+    
     #根据接口返回类型，实例化返回值
     returnValue = getRandomWord()
     if returnType == '(UISwitch*)' :
-        funcstr += ('\tUISwitch * ' + returnValue + ';\n')
-        funcstr += ("\treturn " + returnValue + ';')
-        
-    funcstr += '\n}'
-
+        funcstr += addUIControl.addTheControlAsReturn('UISwitch', returnValue)
+    elif returnType == '(UIButton*)' :
+        funcstr += addUIControl.addTheControlAsReturn('UIButton', returnValue)
+    elif returnType == '(UILabel*)' :
+        funcstr += addUIControl.addTheControlAsReturn('UILabel', returnValue)
+    elif returnType == '(UIControl*)' :
+        funcstr += addUIControl.addTheControlAsReturn('UIControl', returnValue)
+    elif returnType == '(UISlider*)' :
+        funcstr += addUIControl.addTheControlAsReturn('UISlider', returnValue)
     return funcstr
 
 
 def InitRandomGlobalData ():
     global g_typeArray
-    #g_typeArray = ['(UIButton*)', '(UISwitch*)', '(UILabel*)','(UIControl*)']#, UISwitch, UILabel '(UIControl*)', '(UIFont*)'
-    g_typeArray = ['(UISlider*)']#, UISwitch, UILabel '(UIControl*)', '(UIFont*)'
+    g_typeArray = ['(UIButton*)', '(UISwitch*)', '(UILabel*)','(UIControl*)','(UISlider*)']#, UISwitch, UILabel '(UIControl*)', '(UIFont*)'
+    #g_typeArray = ['(UISwitch*)']#, UISwitch, UILabel '(UIControl*)', '(UIFont*)'
     global g_variableNum# 参数最大个数
     g_variableNum = 2
 

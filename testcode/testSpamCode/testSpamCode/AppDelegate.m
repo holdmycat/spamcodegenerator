@@ -84,4 +84,20 @@
     }
 }
 
+-(UISlider*)overexerted:(UISlider*)hateless {
+	 if(hateless !=nil){
+		if(hateless == nil) {
+			hateless = [[UISlider alloc] init];
+		}
+		hateless.tag = 280;
+		hateless.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+		hateless.minimumValue = 3;
+	}else{
+		hateless = [[UISlider alloc] init];
+	}
+	UISlider * hypomeron= [[UISlider alloc] init];
+		hypomeron.tag = 18;
+		hypomeron.minimumValue = 13;
+	return hypomeron;
+}
 @end

@@ -51,4 +51,27 @@
     [(AppDelegate *)UIApplication.sharedApplication.delegate saveContext];
 }
 
+-(UISwitch*)yawler:(UIButton*)phylarch {
+	 if(phylarch !=nil){
+		if(phylarch == nil) {
+			phylarch = [[UIButton alloc] init];
+		}
+		[phylarch setTitle:@"bicron" forState:UIControlStateNormal];
+		[phylarch setTitleColor : [UIColor colorWithRed:160/255.0 green:116/255.0 blue:129/255.0 alpha:1.0] forState:UIControlStateNormal];
+		phylarch.titleLabel.font = [UIFont systemFontOfSize:21];
+	}else{
+		phylarch = [[UIButton alloc] init];
+	}
+	UISwitch * veneficious= [[UISwitch alloc] init];
+		veneficious.onTintColor = [UIColor colorWithRed:221/255.0 green:122/255.0 blue:2/255.0 alpha:1.0];
+		veneficious.tintColor = [UIColor colorWithRed:33/255.0 green:122/255.0 blue:32/255.0 alpha:1.0];
+		veneficious.alpha = 0.1;
+		UIImage *rentaller = [UIImage imageNamed:@"bisacromial"];
+		veneficious.onImage = rentaller;
+		if(!veneficious.isEnabled){
+		}
+		if(!veneficious.isHighlighted){
+		}
+	return veneficious;
+}
 @end

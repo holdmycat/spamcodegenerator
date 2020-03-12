@@ -103,18 +103,100 @@ def addUISliderAsParam(paraName):
 
 
 #------------UI返回值处理---------------
-def addTheControlAsReturn(controlName):
+def addTheControlAsReturn(controlName, returnValue):
     #print(controlName)
+    funcstr = ''
     if controlName == 'UISwitch':
-        addUISwitchAsReturn()
+        funcstr +=addUISwitchAsReturn(returnValue)
+    elif controlName == 'UIButton':
+        funcstr +=addUIButtonAsReturn(returnValue)
+    elif controlName == 'UILabel':
+        funcstr +=addUILabelAsReturn(returnValue)
+    elif controlName == 'UIControl':
+        funcstr +=addUIControlAsReturn(returnValue)
+    elif controlName == 'UISlider':
+        funcstr +=addUISliderAsReturn(returnValue)
+    return funcstr
 
-#添加UISWITCH
-def addUISwitchAsReturn():
-    print("addUISwitchAsParam")
+#['(UIButton*)', '(UISwitch*)', '(UILabel*)','(UIControl*)','(UISlider*)']
+#return: UISWITCH
+def addUISwitchAsReturn(returnValue):
+    funcstr = ''
+    funcstr += ('\tUISwitch * ' + returnValue + '= [[UISwitch alloc] init];\n')
+
+    #添加中间代码
+    funcstr += AddOnTintColor(returnValue)
+    funcstr += AddTintColor(returnValue)
+    funcstr += AddAlpha(returnValue)
+    funcstr += AddUIImage(returnValue)
+    funcstr += AddisEnabled(returnValue)
+    funcstr += AddisHightLighted(returnValue)
+    
+    funcstr += ("\treturn " + returnValue + ';')
+    funcstr += '\n}'
+    return funcstr
+
+#return: UIButton
+def addUIButtonAsReturn(returnValue):
+    funcstr = ''
+    funcstr += ('\tUIButton * ' + returnValue + '= [[UIButton alloc] init];\n')
+
+    #添加中间代码
+    funcstr += AddBtnColor(returnValue)
+    funcstr += AddBtnTitle(returnValue)
+    funcstr += AddBtnFont(returnValue)
+    
+    
+    funcstr += ("\treturn " + returnValue + ';')
+    funcstr += '\n}'
+    return funcstr
+
+#return: UILabel
+def addUILabelAsReturn(returnValue):
+    funcstr = ''
+    funcstr += ('\tUILabel * ' + returnValue + '= [[UILabel alloc] init];\n')
+
+    #添加中间代码
+    funcstr += AddLabelText(returnValue)
+    funcstr += AddShadowOffSet(returnValue)
+    funcstr += AddHighLightedTextColor(returnValue)
+    funcstr += AddLabelFont(returnValue)
+    funcstr += AddTextAlignment(returnValue)
+    
+    
+    funcstr += ("\treturn " + returnValue + ';')
+    funcstr += '\n}'
+    return funcstr
+
+#return UIControl
+def addUIControlAsReturn(returnValue):
+    funcstr = ''
+    funcstr += ('\tUIControl * ' + returnValue + '= [[UIControl alloc] init];\n')
+
+    #添加中间代码
+    funcstr += AddControlBGColor(returnValue)
+    funcstr += AddControlAlignment(returnValue)
+    funcstr += AddControlAlpha(returnValue)
+       
+    funcstr += ("\treturn " + returnValue + ';')
+    funcstr += '\n}'
+    return funcstr
+
+#return UISlider
+def addUISliderAsReturn(returnValue):
+    funcstr = ''
+    #开头代码
+    funcstr += ('\tUISlider * ' + returnValue + '= [[UISlider alloc] init];\n')
+
+    #添加中间代码
+    funcstr += AddUISliderTag(returnValue)
+    funcstr += AddUISliderMin(returnValue)
+    
+    #尾部代码
+    funcstr += ("\treturn " + returnValue + ';')
+    funcstr += '\n}'
+    return funcstr
 #--------------------------------------
-
-
-
 
 #--------------属性封装区---------------
 
@@ -146,7 +228,7 @@ def AddCheckControlInst(paramName):
 
 def AddControlBGColor(paraName):
     funcstr = ""
-    funcstr += '\t\t' + paraName + " backgroundColor = [UIColor colorWithRed:" + str(random.randint(1, 255)) + \
+    funcstr += '\t\t' + paraName + ".backgroundColor = [UIColor colorWithRed:" + str(random.randint(1, 255)) + \
                 "/255.0 green:" + str(random.randint(1, 255)) + "/255.0 blue:" + str(random.randint(1, 255)) + \
                  "/255.0 alpha:1.0];\n"
     return funcstr    
@@ -178,7 +260,7 @@ def AddBtnColor (paraName):
 
 def AddBtnTitle(paraName):
     funcstr = ""
-    funcstr += '\t\t[' + paraName + "setTitle:@\"" + addRandomUI.getRandomWord() + "\"" + ' forState:UIControlStateNormal' + '];\n' 
+    funcstr += '\t\t[' + paraName + " setTitle:@\"" + addRandomUI.getRandomWord() + "\"" + ' forState:UIControlStateNormal' + '];\n' 
     return funcstr   
 
 def AddBtnFont (paraName):
