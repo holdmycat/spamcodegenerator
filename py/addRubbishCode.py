@@ -75,14 +75,13 @@ def AddFunctionHFile(file_path,file_dir, old_str):
     Ropen=open(file_path,'r')
     flagCount = 0
     fundata = {} 
-
+    ignoreHeaderFile = ['AppDelegate.h','SceneDelegate.h']
     hFileNameArray = []#当前文件通目录下的其他.h文件名称数组
     for file_name in os.listdir(file_dir): 
         if '.h' in file_name:
-            if file_path.find(file_name) == -1:
+            if file_path.find(file_name) == -1 and file_name not in ignoreHeaderFile:
                 hFileNameArray.append(file_name)
-   
-             
+
     hendTotalCount = GetFileEndCount(file_path, old_str)
     for line in Ropen:
         if old_str in line:

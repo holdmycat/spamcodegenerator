@@ -162,12 +162,13 @@ def addRandomClassDefinition(funcstruc, finalHFileArray):
     #随机抽取1个
     if len(finalHFileArray) > 1:
         _tmpIndex = random.randint(0, len(finalHFileArray) - 1)
-        className = finalHFileArray[_tmpIndex]
+        className = finalHFileArray[_tmpIndex].split('.')[0]
         print(className.split('.')[0])
+        tmpParaName = getRandomWord()
+        funcstr+= '\t' + className + ' * ' + tmpParaName + \
+                ' = [[' + className + '] init];\n'
 
-
-    for i in range(paraNum):
-      
+    for i in range(paraNum):   
         tmpParamType = funcstruc["paramArray"][i]["type"]
         tmpParamName = funcstruc["paramArray"][i]["name"]
         if tmpParamType == '(UISwitch*)' :
