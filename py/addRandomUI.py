@@ -139,12 +139,12 @@ def addRandomClassDeclaration():
         "funstruc": funcStruc
     }
 
-def addRandomClassDefinition(funcstruc):
+def addRandomClassDefinition(funcstruc, finalHFileArray):
     #typeArray = ['(UISwitch*)', '(UIControl*)', '(UIFont*)']
     returnType = funcstruc["returnType"]
     funcName = funcstruc["funcName"]#func name
     paraNum = funcstruc["paramNum"]
-    print(returnType)
+    #print(returnType)
     funcstr = '-' + returnType + funcName + ':'
     for i in range(paraNum):
         tmpParamType = funcstruc["paramArray"][i]["type"]
@@ -154,7 +154,16 @@ def addRandomClassDefinition(funcstruc):
         else :
             funcstr += (tmpParamName) + ":" + (tmpParamType) + tmpParamName + " "
     funcstr += '{\n'
+
     # add function body
+
+    #随机抽取1个
+    if len(finalHFileArray) > 1:
+        _tmpIndex = random.randint(0, len(finalHFileArray) - 1)
+        className = finalHFileArray[_tmpIndex]
+        print(className.split('.')[0])
+
+
     for i in range(paraNum):
       
         tmpParamType = funcstruc["paramArray"][i]["type"]

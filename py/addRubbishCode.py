@@ -69,11 +69,20 @@ def MFileAddCode(file_path,old_str,endTotalCount):
     
 
 
-def AddFunctionHFile(file_path,old_str):
+def AddFunctionHFile(file_path,file_dir, old_str):
+    #print("file_dir: " + file_dir)
     file_data = ""
     Ropen=open(file_path,'r')
     flagCount = 0
     fundata = {} 
+
+    hFileNameArray = []#当前文件通目录下的其他.h文件名称数组
+    for file_name in os.listdir(file_dir): 
+        if '.h' in file_name:
+            if file_path.find(file_name) == -1:
+                hFileNameArray.append(file_name)
+   
+             
     hendTotalCount = GetFileEndCount(file_path, old_str)
     for line in Ropen:
         if old_str in line:
@@ -88,20 +97,49 @@ def AddFunctionHFile(file_path,old_str):
     Wopen=open(file_path,'w')
     Wopen.write(file_data)
     Wopen.close()
+    fundata["hFileArray"] = hFileNameArray
     return fundata
 
-def AddFunctionMFile(hfile_path, old_str, funstruc):
+def AddFunctionMFile(hfile_path, old_str, funstruc, hFileArray):
     mfiledata = ""
     mfilepath = hfile_path.replace(".h", ".m")   
     flagCount = 0
+    headerFlatCount = 0
+    headStr = "#import"
     hendTotalCount = GetFileEndCount(mfilepath, old_str)
+    finalHFileArray = []#最终真正添加到当前文件的#import头 
+    #add import header
+    try:
+        mfopen = open(mfilepath, 'r')
+        for line in mfopen:
+            if headStr in line:
+                if headerFlatCount == 0 and len(hFileArray) > 1:     
+                        randomNum = random.randint(1, len(hFileArray))
+                        for i in range(randomNum):
+                            finalHFileArray.append(hFileArray[i])
+                            mfiledata+= ("#import \"" + hFileArray[i] + "\"" + '\n')
+                mfiledata += line
+                headerFlatCount+=1
+            else:
+                mfiledata += line
+        mfopen.close()
+        Wopen=open(mfilepath,'w')
+        Wopen.write(mfiledata)
+        Wopen.close()     
+    except IOError:
+        print("File not accessible")
+    finally:
+        mfopen.close()
+    
+    #add import function
+    mfiledata = ""
     try:
         mfopen = open(mfilepath, 'r')
         for line in mfopen:
             if old_str in line:
                 flagCount += 1
                 if flagCount==hendTotalCount:
-                    mfiledata +=  (addRandomUI.addRandomClassDefinition(funstruc) + "\n")            
+                    mfiledata +=  (addRandomUI.addRandomClassDefinition(funstruc,finalHFileArray) + "\n")            
                 mfiledata += line
             else:
                 mfiledata += line
@@ -114,15 +152,15 @@ def AddFunctionMFile(hfile_path, old_str, funstruc):
     finally:
         mfopen.close()
 
-def addCode(file_path):
+def addCode(file_path, file_dir):
     global codeCount
     if '.h' in file_path:  # file_dir+'/'+file含义是file_dir文件夹下的file文件
         # 获取文件中 @end 的总数量，在最后一个 @end 前面添加垃圾代码 
         
         for num in range(codeCount):
-            print("file path: " + file_path)
-            fundata = AddFunctionHFile(file_path, "@end")
-            AddFunctionMFile(file_path, "@end", fundata["funstruc"])
+            #print("file path: " + file_path)
+            fundata = AddFunctionHFile(file_path, file_dir, "@end")
+            AddFunctionMFile(file_path, "@end", fundata["funstruc"],fundata["hFileArray"])
             #print(file_path)
             
             #print(funcStruc)
@@ -136,10 +174,12 @@ def addCode(file_path):
 # 循环递归遍历文件夹
 def traverse(file_dir):
     fs = os.listdir(file_dir)
+    #print(fs)
     for dir in fs:
         tmp_path = os.path.join(file_dir, dir)
+        #print("tmp_path:" + tmp_path) 
         if not os.path.isdir(tmp_path):
-            addCode(tmp_path)    
+            addCode(tmp_path, file_dir)    
         else:
             # 是文件夹,则递归调用
             traverse(tmp_path)
